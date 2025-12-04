@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meridian - Premium Dining</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+      
+    </style>
+  </head>
+  <body>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <div class="preloader">
+      <div class="preloader-text">MERIDIAN</div>
+      <div class="preloader-line"></div>
+    </div>
+
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <header class="glass">
+      <div class="header-content">
+        <div class="logo">Meridian</div>
+        <div class="auth-section" id="authSection">
+          <div class="auth-form" id="authForm">
+            <input
+              type="text"
+              id="usernameInput"
+              placeholder="Логин"
+              class="hover-target"
+            />
+            <input
+              type="password"
+              id="passwordInput"
+              placeholder="Пароль"
+              class="hover-target"
+            />
+            <button onclick="login()" class="hover-target">Войти</button>
+            <button
+              onclick="showRegisterModal()"
+              class="hover-target"
+              style="
+                background: transparent;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+              "
+            >
+              Регистрация
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Добро пожаловать<br />в Кулинарный мир <span>Meridian</span>
+        </h1>
+        <p class="hero-subtitle">
+          Ощутите воплощение "Тихой Роскоши" в Meridian. Наш ресторан предлагает
+          уникальный гастрономический опыт, сочетающий изысканную кухню с
+          камерной и атмосферной обстановкой.
+        </p>
+        <div class="hero-buttons">
+          <button
+            class="hero-btn hover-target"
+            onclick="document.getElementById('menu-section').scrollIntoView({behavior: 'smooth'})"
+          >
+            МЕНЮ
+          </button>
+          <button
+            class="hero-btn btn-outline hover-target"
+            onclick="document.getElementById('game-section').scrollIntoView({behavior: 'smooth'})"
+          >
+            ИГРАТЬ
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="carousel-section">
+      <h2 class="section-title"><span>Наши Локации</span></h2>
+      <div class="carousel-container">
+        <div class="carousel-wrapper" id="carouselWrapper">
+          <div class="carousel-item hover-target">
+            <img
+              src="https://i.ibb.co/3y4B4J36/Gemini-Generated-Image-838vjf838vjf838v.png"
+              alt="Филиал 1"
+            />
+            <div class="carousel-info">
+              <h3>Meridian Central</h3>
+              <p>📍 пр. Чуй 125 | 📞 +996 312 900 100</p>
+            </div>
+          </div>
+          <div class="carousel-item hover-target">
+            <img
+              src="https://i.ibb.co/CsPnSqrb/Gemini-Generated-Image-wr3trawr3trawr3t.png"
+              alt="Филиал 2"
+            />
+            <div class="carousel-info">
+              <h3>Meridian Park</h3>
+              <p>📍 ул. Исанова 42 | 📞 +996 312 900 200</p>
+            </div>
+          </div>
+          <div class="carousel-item hover-target">
+            <img
+              src="https://i.ibb.co/Q3qtf6Zk/Gemini-Generated-Image-v64h7xv64h7xv64h.png"
+              alt="Филиал 3"
+            />
+            <div class="carousel-info">
+              <h3>Meridian Garden</h3>
+              <p>📍 бул. Эркиндик 87 | 📞 +996 312 900 300</p>
+            </div>
+          </div>
+          <div class="carousel-item hover-target">
+            <img
+              src="https://i.ibb.co/1tcFDQJt/Gemini-Generated-Image-48im9c48im9c48im.png"
+              alt="Филиал 4"
+            />
+            <div class="carousel-info">
+              <h3>Meridian Plaza</h3>
+              <p>📍 ул. Киевская 154 | 📞 +996 312 900 400</p>
+            </div>
+          </div>
+          <div class="carousel-item hover-target">
+            <img
+              src="https://i.ibb.co/5h0b356s/Gemini-Generated-Image-xi8fzrxi8fzrxi8f.png"
+              alt="Филиал 5"
+            />
+            <div class="carousel-info">
+              <h3>Meridian Elite</h3>
+              <p>📍 пр. Манаса 33 | 📞 +996 312 900 500</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn hover-target" onclick="prevSlide()">
+          ←
+        </button>
+        <button class="carousel-btn hover-target" onclick="nextSlide()">
+          →
+        </button>
+      </div>
+    </section>
+
+    <section class="dishes-section" id="menu-section">
+      <h2 class="section-title"><span>Избранное Меню</span></h2>
+      <div class="dishes-grid">
+        <div class="dish-card hover-target">
+          <img
+            src="https://i.ibb.co/0Rw9yy4Q/Gemini-Generated-Image-l0bunml0bunml0bu.png"
+            alt="Блюдо 1"
+          />
+          <div class="dish-info">
+            <h3>Стейк Рибай</h3>
+            <p>Мраморная говядина Black Angus</p>
+          </div>
+        </div>
+        <div class="dish-card hover-target">
+          <img
+            src="https://i.ibb.co/NgT69mXs/Gemini-Generated-Image-4zqlh84zqlh84zql.png"
+            alt="Блюдо 2"
+          />
+          <div class="dish-info">
+            <h3>Лосось Гриль</h3>
+            <p>Подается на подушке из шпината</p>
+          </div>
+        </div>
+        <div class="dish-card hover-target">
+          <img
+            src="https://i.ibb.co/r2P2vgrx/Gemini-Generated-Image-pndqo8pndqo8pndq.png"
+            alt="Блюдо 3"
+          />
+          <div class="dish-info">
+            <h3>Трюфельная Паста</h3>
+            <p>Ручная работа, свежий трюфель</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="game-section" id="game-section">
+      <h2 class="section-title" style="font-size: 36px">
+        <span>Meridian Club</span>
+      </h2>
+      <p style="color: #888; margin-bottom: 40px">
+        Играйте и копите баллы для оплаты счета
+      </p>
+      <button class="game-btn hover-target" onclick="showGame()">
+        НАЧАТЬ ИГРУ
+      </button>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Meridian</h3>
+          <p>
+            Искусство вкуса в каждой детали.<br />Премиальный сервис и
+            атмосфера.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Навигация</h3>
+          <a href="#menu-section" class="hover-target">Меню</a>
+          <a href="#game-section" class="hover-target">Игра</a>
+          <a href="#authSection" class="hover-target">Личный кабинет</a>
+        </div>
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <p>reservations@meridian.kg</p>
+          <p>+996 312 900 000</p>
+          <p>Бишкек, пр. Чуй 125</p>
+        </div>
+        <div class="footer-section">
+          <h3>Режим работы</h3>
+          <p>Пн-Вс: 10:00 - 00:00</p>
+          <p>Без выходных</p>
+        </div>
+        <div class="footer-section">
+          <h3>Следите за нами</h3>
+          <p class="hover-target">@meridian_official</p>
+        </div>
+      </div>
+      <p style="text-align: center; color: #444; font-size: 11px">
+        © 2024 Meridian Restaurant Group. All rights reserved.
+      </p>
+    </footer>
+
+    <div id="registerModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal hover-target" onclick="closeRegisterModal()"
+          >×</span
+        >
+        <h2
+          style="
+            color: white;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+          "
+        >
+          Регистрация
+        </h2>
+        <div class="form-group" style="margin-bottom: 15px">
+          <label>Email</label>
+          <input
+            type="email"
+            id="regEmail"
+            placeholder="example@mail.com"
+            style="width: 100%"
+          />
+        </div>
+        <div class="form-group" style="margin-bottom: 15px">
+          <label>Логин</label>
+          <input
+            type="text"
+            id="regUsername"
+            placeholder="Придумайте логин"
+            style="width: 100%"
+          />
+        </div>
+        <div class="form-group" style="margin-bottom: 15px">
+          <label>Пароль</label>
+          <input
+            type="password"
+            id="regPassword"
+            placeholder="••••••••"
+            style="width: 100%"
+          />
+        </div>
+        <button
+          onclick="register()"
+          class="hover-target"
+          style="width: 100%; margin-top: 20px"
+        >
+          Создать Аккаунт
+        </button>
+      </div>
+    </div>
+
+    <div id="gameModal" class="modal">
+      <div
+        class="modal-content"
+        style="max-width: 480px; background: #0f0f0f; border-color: #333"
+      >
+        <span class="close-modal hover-target" onclick="closeGame()">×</span>
+        <h2
+          style="
+            color: var(--accent-bronze);
+            text-align: center;
+            margin-bottom: 10px;
+            font-family: 'Cormorant Garamond', serif;
+          "
+        >
+          Meridian Challenge
+        </h2>
+
+        <div
+          id="gameUI"
+          style="
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 13px;
+          "
+        >
+          <span id="scoreDisplay">Счет: 0</span>
+          <span id="bestScoreDisplay">Рекорд: 0</span>
+        </div>
+
+        <div
+          class="game-container"
+          style="display: flex; justify-content: center"
+        >
+          <canvas id="gameCanvas" width="400" height="400"></canvas>
+        </div>
+
+        <p
+          style="
+            text-align: center;
+            color: #444;
+            font-size: 11px;
+            margin-top: 20px;
+            text-transform: uppercase;
+          "
+        >
+          Кликните для броска • Остерегайтесь столкновений
+        </p>
+      </div>
+    </div>
+
+    <script>
+      
+    </script>
+  </body>
+</html>
